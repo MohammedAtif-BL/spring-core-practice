@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    Engine Bean-->
+    <bean id="engineBean" class="com.example.backend.Engine">
+        <property name="type" value="V8 Turbo"/>
+    </bean>
+
+<!--    Car bean Using DI-->
+    <bean id="carBean" class="com.example.backend.Car">
+        <property name="model" value="Tesla Model X"/>
+        <property name="engine" ref="engineBean"/>
+
+        <property name="features">
+            <list>
+                <value>Auto-Pilot</value>
+                <value>Smart Air Suspension</value>
+                <value>Panoramic Roof</value>
+            </list>
+        </property>
+
+        <property name="specs">
+            <map>
+                <entry key="Battery" value="100 kWh"/>
+                <entry key="Top Speed" value="250 km/h"/>
+                <entry key="Range" value="500 km"/>
+            </map>
+        </property>
+
+    </bean>
+
+</beans>
